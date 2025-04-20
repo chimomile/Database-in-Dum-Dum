@@ -71,10 +71,10 @@ JOIN PRODUCT.STOCKPRODUCT p ON o.id_sproduct = p.id_sproduct;
 
 ## 📷 Screenshot
 ### Entity Relationship Diagram (ERD)
-![ERD](./assets/ERD.jpeg)
+![ERD](./ERD.png)
 
 ### Schematic Diagram
-![Schematic](./assets/Schematic_Diagram.jpeg)
+![Schematic](./SchematicDiagram.jpg)
 
 ## 📄 Dokumentasi Lengkap
 Lihat file berikut untuk laporan proyek yang mencakup penjelasan sistem, desain tabel, ERD, serta proses analisis:
