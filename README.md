@@ -1,65 +1,65 @@
 # DATABASE IN DUM-DUM
 
-## 📖 Deskripsi Singkat
-`DATABASE IN DUM-DUM` adalah sebuah proyek basis data yang dikembangkan untuk mengelola data penjualan produk minuman dan barang di sebuah usaha fiktif bernama Dum-Dum. Proyek ini mencakup perancangan skema database, validasi data yang ketat, implementasi prosedur tersimpan (stored procedure), penggunaan trigger, dan pembuatan view untuk membantu visualisasi data. Proyek ini ditujukan untuk memenuhi tugas akhir dari mata kuliah Basis Data dan mencerminkan praktik terbaik dalam pengembangan sistem database relasional.
+## 📖 Project Overview
+`DATABASE IN DUM-DUM` is a database project developed to manage sales data of beverages and goods in a fictional business called Dum-Dum. This project includes database schema design, strict data validation, implementation of stored procedures, use of triggers, and the creation of a view to support data visualization. It was developed to fulfill a final project requirement for a Database course and reflects best practices in relational database system development.
 
-## 🧩 Tujuan Proyek
-- Menyusun sistem database yang terstruktur dan efisien.
-- Menerapkan validasi pada data untuk menjamin integritas.
-- Menggunakan stored procedure untuk mempermudah pengelolaan data.
-- Menyimpan log perubahan data dengan trigger.
-- Menampilkan data dengan view untuk kemudahan analisis.
+## 🧩 Project Objectives
+- Build a well-structured and efficient database system
+- Apply data validation to ensure data integrity
+- Use stored procedures to simplify data operations
+- Record data changes using triggers
+- Display data using a view for easier analysis
 
-## 🧰 Teknologi & Tools
+## 🧰 Technologies & Tools
 - **Database Management System**: Microsoft SQL Server
-- **Diagram Tools**: Draw.io (untuk membuat ERD dan Schematic Diagram)
+- **Diagram Tools**: Draw.io (for creating ERD and schematic diagrams)
 - **IDE**: SQL Server Management Studio (SSMS)
-- **Dokumentasi**: Microsoft Word
+- **Documentation**: Microsoft Word
 
-## 🧠 Alur Sistem
-1. **Perancangan ERD**: Menggambarkan relasi antar entitas seperti pegawai, pelanggan, produk, dan transaksi.
-2. **Desain Skema Database**: Dibagi menjadi dua skema: `HUMAN` (untuk data personal) dan `PRODUCT` (untuk data produk dan stok).
-3. **Pembuatan Tabel**: Menentukan field, tipe data, panjang karakter, serta constraint seperti `PRIMARY KEY`, `FOREIGN KEY`, dan `CHECK`.
-4. **Validasi**: Diterapkan di berbagai field (seperti email dan nomor telepon) untuk memastikan data masuk sesuai format.
-5. **Input Data**: Data dimasukkan secara manual maupun otomatis menggunakan `stored procedure`.
-6. **Trigger**: Digunakan untuk mencetak notifikasi ketika data dimasukkan atau diperbarui di tabel tertentu.
-7. **View**: Disediakan view bernama `Menu` untuk menyatukan data dari beberapa tabel yang berhubungan.
+## 🧠 System Workflow
+1. **ERD Design**: Illustrates relationships between entities such as employees, customers, products, and transactions.
+2. **Database Schema Design**: Divided into two main schemas: `HUMAN` (for personal data) and `PRODUCT` (for product and stock data).
+3. **Table Creation**: Defines fields, data types, field lengths, and constraints like `PRIMARY KEY`, `FOREIGN KEY`, and `CHECK`.
+4. **Validation**: Applied on various fields (e.g., email and phone number) to ensure proper format.
+5. **Data Insertion**: Data is inserted manually or via `stored procedures`.
+6. **Triggers**: Used to display notifications when data is inserted or updated in certain tables.
+7. **View**: A view named `Menu` is created to join and present data from related tables.
 
-## 🗃️ Struktur Skema & Tabel
-### Skema `HUMAN`
-- **EMPLOYEE**: Data pegawai (nama, jabatan, email, alamat).
-- **CUSTOMER**: Data pelanggan (nama dan email).
-- **SUPPLIER**: Pemasok barang (termasuk nomor telepon dan alamat).
+## 🗃️ Schema & Table Structure
+### `HUMAN` Schema
+- **EMPLOYEE**: Employee data (name, position, email, address)
+- **CUSTOMER**: Customer data (name and email)
+- **SUPPLIER**: Supplier data (including phone and address)
 
-### Skema `PRODUCT`
-- **STOCKPRODUCT**: Produk yang tersedia dan jumlah stok.
-- **BARANG**: Daftar barang tambahan seperti VGA, SSD, RAM.
-- **ORDERS**: Informasi pesanan pelanggan.
-- **SUPPLIER**: Duplikasi supplier untuk kebutuhan produk.
+### `PRODUCT` Schema
+- **STOCKPRODUCT**: Available products and their stock
+- **BARANG**: Additional items such as VGA, SSD, RAM
+- **ORDERS**: Customer orders
+- **SUPPLIER**: Duplicated supplier for product needs
 
-### Tabel Umum
-- **PAYMENT**: Data pembayaran (metode, total).
-- **TRANSAKSI**: Catatan transaksi pembelian oleh pelanggan.
-- **VIEW Menu**: Tampilan ringkas pemesanan berdasarkan ID order.
+### Other Tables
+- **PAYMENT**: Payment data (method and total amount)
+- **TRANSACTION**: Records of customer purchases
+- **VIEW Menu**: A simplified view of order-related data
 
-## 🛡️ Contoh Validasi
-- ID Pegawai: `id_employee` → harus diawali `E` (contoh: `E001`)
-- Email: `email_customer` → harus mengandung `@gmail.com`
-- Nomor telepon: `phone_number` → harus dimulai dari `08`
-- ID Produk: `id_sproduct` → harus dimulai dengan `SPR` (contoh: `SPR001`)
+## 🛡️ Validation Examples
+- Employee ID: `id_employee` → must start with `E` (e.g., `E001`)
+- Email: `email_customer` → must end with `@gmail.com`
+- Phone Number: `phone_number` → must begin with `08`
+- Product ID: `id_sproduct` → must start with `SPR` (e.g., `SPR001`)
 
-## 🔁 Stored Procedures dan Trigger
-### Stored Procedure yang tersedia:
-- `SPALL`: Menampilkan seluruh data dari semua tabel
-- `InsertCustomer`: Menambahkan pelanggan baru
-- `sp_UpdateCustomer`: Memperbarui data pelanggan
-- `DeleteCustomerByID`: Menghapus pelanggan berdasarkan ID
-- `SPINPUTDATAPEGAWAI`: Menambahkan pegawai
+## 🔁 Stored Procedures & Triggers
+### Available Stored Procedures:
+- `SPALL`: Displays data from all tables
+- `InsertCustomer`: Adds a new customer
+- `sp_UpdateCustomer`: Updates customer data
+- `DeleteCustomerByID`: Deletes a customer by ID
+- `SPINPUTDATAPEGAWAI`: Adds a new employee
 
-### Trigger:
-- `TRINPUTBARANG`: Menampilkan notifikasi saat data barang dimasukkan
-- `UPDATEPRODUCT_Log`: Menyimpan log saat data produk diperbarui
-- `DeleteSTOCKPRODUCT_Log1`: Menyimpan log saat data produk dihapus
+### Triggers:
+- `TRINPUTBARANG`: Displays a notification when a new product is inserted
+- `UPDATEPRODUCT_Log`: Logs updates to product data
+- `DeleteSTOCKPRODUCT_Log1`: Logs product deletion events
 
 ## 👁️‍🗨️ View: Menu
 ```sql
@@ -69,35 +69,34 @@ FROM ORDERS o
 JOIN PRODUCT.STOCKPRODUCT p ON o.id_sproduct = p.id_sproduct;
 ```
 
-## 📷 Screenshot
+## 📷 Screenshots
 ### Entity Relationship Diagram (ERD)
 ![ERD](./ERD.png)
 
 ### Schematic Diagram
 ![Schematic](./SchematicDiagram.jpg)
 
-## 📄 Dokumentasi Lengkap
-Lihat file berikut untuk laporan proyek yang mencakup penjelasan sistem, desain tabel, ERD, serta proses analisis:
+## 📄 Full Documentation
+Refer to the following file for a comprehensive report that includes system explanation, table designs, ERD, and analytical processes:
 - [`[PROJECT 3] DATABASE IN DUM DUM.docx`](./[PROJECT%203]%20DATABASE%20IN%20DUM%20DUM.docx)
 
-## 🔧 Cara Menjalankan Project
-1. Buka Microsoft SQL Server Management Studio (SSMS).
-2. Jalankan perintah:
+## 🔧 How to Run This Project
+1. Open Microsoft SQL Server Management Studio (SSMS)
+2. Run the command:
    ```sql
    CREATE DATABASE DUMDUM;
    USE DUMDUM;
    ```
-3. Buat semua skema dan tabel sesuai `DUMDUM.sql`.
-4. Jalankan prosedur `EXEC SPALL` untuk melihat semua data.
-5. Gunakan `EXEC` pada stored procedure untuk input atau update data.
-6. Cek view `Menu` untuk melihat ringkasan pesanan.
+3. Create all schemas and tables based on the `DUMDUM.sql` file
+4. Run `EXEC SPALL` to view all data
+5. Use `EXEC` with stored procedures to insert or update data
+6. Use the `Menu` view to see a summary of orders
 
-## 👨‍💻 Developer
+## 👨‍💻 Developers
 - Leann Nataly Kenan Pakpahan
 - Salma Aufa Ramadhanti Iswara
 - Techi Kariska Sari
 
-## 📅 Timeline
-- **Mulai**: 14 Desember 2023
-- **Selesai**: 28 Desember 2023
-
+## 📅 Project Timeline
+- **Start**: December 14, 2023
+- **End**: December 28, 2023
